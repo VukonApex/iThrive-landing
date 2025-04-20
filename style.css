@@ -311,3 +311,83 @@ body.fade-in {
     opacity: 1;
   }
 }
+
+
+/* === Legal Pages (Uslovi korišćenja & Politika privatnosti) === */
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 10% 60px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+main h1 {
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+main h2 {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: var(--dark);
+  border-bottom: 2px solid #e2e2e2;
+  padding-bottom: 6px;
+}
+
+main p {
+  margin-bottom: 1rem;
+  font-size: 16px;
+  color: var(--dark);
+}
+
+main ul {
+  margin-bottom: 1.5rem;
+  padding-left: 20px;
+}
+
+main ul li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: var(--dark);
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 40px 6% 40px;
+  }
+
+  main h1 {
+    font-size: 24px;
+  }
+
+  main h2 {
+    font-size: 18px;
+  }
+
+  main p,
+  main ul li {
+    font-size: 15px;
+  }
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.footer__social a {
+  color: #ccc;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer__social a:hover {
+  color: white;
+}

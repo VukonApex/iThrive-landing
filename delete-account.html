@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brisanje naloga – iThrive</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon.png"/>
+  <style>
+    .delete-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 60px 10%;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .delete-container h1 {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .delete-container p {
+      color: var(--dark);
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .delete-container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .delete-container button {
+      background: #d72638;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .delete-container button:hover {
+      background: #b91e2c;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .modal-content h2 {
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .modal-content button {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="delete-container">
+    <h1>Žao nam je što odlazite 💔</h1>
+    <p>
+      Hvala vam na vremenu provedenom sa nama. Ako ste sigurni da želite da trajno obrišete svoj iThrive nalog, unesite svoju email adresu i lozinku, pa kliknite na dugme ispod.<br><br>
+      Ova akcija je nepovratna.
+    </p>
+
+    <input type="email" id="email" placeholder="Email adresa" required />
+    <input type="password" id="password" placeholder="Lozinka" required />
+    <button onclick="openModal()">Obriši nalog</button>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="confirmModal">
+    <div class="modal-content">
+      <h2>Da li ste sigurni?</h2>
+      <p>Ova radnja će trajno obrisati vaš nalog i sve podatke. Nastaviti?</p>
+      <button onclick="confirmDeletion()">Da, obriši</button>
+      <button onclick="closeModal()">Otkaži</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("confirmModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("confirmModal").style.display = "none";
+    }
+
+    async function confirmDeletion() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (!email || !password) {
+        alert("Molimo unesite email i lozinku.");
+        return;
+      }
+
+      try {
+        const response = await fetch("https://app.ithrive.rs/api/auth/accountDeletion", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+        alert(data.message || "Vaš nalog je uspešno obrisan. Želimo vam sve najbolje na vašem putu. 🌟");
+        window.location.href = "/";
+        } else {
+        alert(data.message || "Došlo je do greške. Proverite podatke.");
+        }
+
+        } catch (err) {
+            alert("Greška pri komunikaciji sa serverom.");
+        }
+
+        closeModal();
+    }
+  </script>
+</body>
+</html>
