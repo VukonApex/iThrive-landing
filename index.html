@@ -20,13 +20,23 @@
 <body class="fade-in">
 
   <header class="hero">
-    <div class="hero__content">
-      <h1>iThrive</h1>
-      <h2 class="hero__subtitle">Mudrost. Vizija. Snaga.</h2>
-      <p class="hero__desc">
-        Dobrodošao u iThrive – tvoje digitalno svetilište za svakodnevni napredak kroz znanje i akciju.
+   <div class="hero__content" style="text-align: center;">
+      <p class="hero__desc" style="font-size: 18px; line-height: 1.8;">
+        📚 <strong>iThrive</strong> ti donosi <strong>najmoćnije ideje i životne strategije</strong> iz najboljih knjiga današnjice – kroz sažetke u tekstu i zvuku koje možeš savladati za 30 do 60 minuta.<br><br>
+        🎧 <em>Atomic Habits</em>, <em>Rich Dad Poor Dad</em>, <em>Can't Hurt Me</em>, <em>The Power of Now</em>, <em>Think and Grow Rich</em>, <em>The 5 AM Club</em> – i još desetine naslova koji menjaju pogled na život.<br><br>
+        💡 Slušaj dok šetaš. Čitaj kad ti treba jasnoća. Otključaj znanje koje pokreće. Svaki dan, jedan korak bliže najboljoj verziji sebe.
       </p>
-      <a href="#journey" class="hero__cta">Kreni na putovanje</a>
+
+      <div class="footer__stores" style="margin-top: 30px; display: flex; justify-content: center; gap: 16px; flex-wrap: nowrap;">
+        <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank" style="flex-shrink: 0;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Preuzmi na Google Play" style="height: 50px;" />
+        </a>
+        <a href="https://apps.apple.com/app/id000000000" target="_blank" style="flex-shrink: 0;">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Preuzmi na App Store" style="height: 50px;" />
+        </a>
+      </div>
     </div>
     <div class="hero__image">
       <img src="assets/images/mockups/0.png" alt="iThrive mockup" />
@@ -456,16 +466,56 @@
     </div>
   </section>
 
-  <section id="waitlist" class="waitlist">
-    <h2>Prijavi se na listu čekanja</h2>
-    <p>Budi među prvih 100 korisnika koji dobijaju <strong>GOLD plan besplatno</strong>.</p>
-    <form class="waitlist__form" id="waitlistForm">
-      <input type="text" name="name" placeholder="Tvoje ime" required />
-      <input type="email" name="email" placeholder="Email adresa" required />
-      <button type="submit">Prijavi se</button>
-    </form>
-    <div id="waitlistMessage" class="waitlist__message"></div>
-  </section>
+  <section id="finish" class="waitlist" style="animation: fadeInUp 1s ease-in;">
+  <h2 style="font-size: 32px; font-weight: 800; color: var(--primary);">🎉 Čestitamo!</h2>
+  <p style="font-size: 18px; max-width: 700px; margin: 20px auto;">
+    Prvi izazov si uspešno savladao – stigao si do kraja prezentacije. Time si dokazao nešto važno:
+    <strong>imaš volju da postaneš najbolja verzija sebe</strong>. 
+    Zato ti nudimo priliku da odmah napraviš sledeći korak.
+  </p>
+
+  <p style="font-size: 18px; max-width: 700px; margin: 20px auto;">
+    🎁 <strong>Preuzmi iThrive aplikaciju danas i otključaj BESPLATNO sledećih 5 knjiga koje menjaju život:</strong>
+  </p>
+
+  <ul style="list-style: none; padding: 0; font-size: 17px; margin: 20px auto; max-width: 600px; text-align: center;">
+    <li>📘 <strong>Atomic Habits</strong> – James Clear</li>
+    <li>🧠 <strong>The Power of Your Subconscious Mind</strong> – Joseph Murphy</li>
+    <li>🔥 <strong>Can't Hurt Me</strong> – David Goggins</li>
+    <li>💰 <strong>Rich Dad Poor Dad</strong> – Robert Kiyosaki</li>
+    <li>🌿 <strong>The Four Agreements</strong> – Don Miguel Ruiz</li>
+  </ul>
+
+  <p style="font-size: 18px; margin: 30px auto; max-width: 700px;">
+    🚀 Preuzmi aplikaciju sada i započni svoje putovanje ka snažnijoj, mudrijoj i disciplinovanijoj verziji sebe.
+  </p>
+
+  <div class="footer__stores" style="margin-top: 30px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+    <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+           alt="Preuzmi na Google Play" style="height: 50px;" />
+    </a>
+    <a href="https://apps.apple.com/app/id000000000" target="_blank">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+           alt="Preuzmi na App Store" style="height: 50px;" />
+    </a>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <a href="#journey" style="
+        font-size: 14px;
+        color: #555;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+        display: inline-block;
+      " onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+      🔁 Nazad na početak
+    </a>
+  </div>
+
+</section>
+
+
 
   <footer class="footer">
     <div class="footer__content">
@@ -478,7 +528,7 @@
       </nav>
   
       <div class="footer__stores">
-        <a href="https://play.google.com/store/apps/details?id=com.ithrive" target="_blank">
+        <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                  alt="Preuzmi na Google Play" style="height: 40px;" />
           </a>
@@ -489,13 +539,13 @@
       </div>
   
       <div class="footer__social">
-        <a href="https://www.instagram.com/ithriveapp" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/ithrive.rs" target="_blank" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/ithriveapp" target="_blank" aria-label="Facebook">
+        <a target="_blank" aria-label="Facebook">
           <i class="fab fa-facebook"></i>
         </a>
-        <a href="https://www.tiktok.com/@ithriveapp" target="_blank" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@ithrive.rs" target="_blank" aria-label="TikTok">
           <i class="fab fa-tiktok"></i>
         </a>
       </div>
