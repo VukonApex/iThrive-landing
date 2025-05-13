@@ -1,0 +1,109 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    .plan-card {
+        transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .plan-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 70%);
+        transition: all 0.6s ease;
+    }
+
+    .plan-card:hover::before {
+        left: 100%;
+    }
+
+    .plan-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .plan-card ul li::before {
+        content: "\2714\0020";
+        color: #2ecc71;
+        font-weight: bold;
+        margin-right: 4px;
+    }
+
+    .plan-card button {
+        box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+    }
+
+    .plan-card button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+    }
+</style>
+
+<section id="pricing" class="pricing"
+    style="padding: 60px 20px; background-color: #fdfdfd; font-family: 'Poppins', sans-serif;">
+    <h2 style="text-align: center; font-size: 36px; font-weight: 800; color: #222;">🪙 Odaberi svoj nivo fokusa</h2>
+    <p style="text-align: center; font-size: 18px; max-width: 700px; margin: 20px auto; color: #555;">
+        iThrive ti pruža planove rasta u skladu s tvojim tempom i potrebama. Kreni besplatno, a zatim biraj da li želiš
+        dublji fokus ili pun potencijal.
+    </p>
+
+    <div class="plans" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+
+        <!-- BASIC PLAN -->
+        <div class="plan-card"
+            style="background: #fff8f2; border: 2px solid #cd7f32; border-radius: 20px; padding: 30px 20px; width: 300px; box-shadow: 0 6px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="text-align: center; font-size: 22px; color: #cd7f32;">🥉 iThrive Basic</h3>
+                <p style="text-align: center; font-size: 15px; color: #888;">Besplatno zauvek</p>
+                <ul
+                    style="list-style: none; padding: 0; margin: 20px 0; font-size: 15px; line-height: 1.6; color: #444;">
+                    <li>5 knjiga u tekstu i audio</li>
+                    <li>Neograničen pristup aplikaciji</li>
+                </ul>
+            </div>
+            <button disabled
+                style="background: #cd7f32; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-size: 15px; cursor: default; opacity: 0.6; margin-top: auto;">Aktivno</button>
+        </div>
+
+        <!-- SILVER PLAN -->
+        <div class="plan-card"
+            style="background: #f3f3f3; border: 2px solid #c0c0c0; border-radius: 20px; padding: 30px 20px; width: 300px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="text-align: center; font-size: 22px; color: #777;">🥈 iThrive Silver</h3>
+                <p style="text-align: center; font-size: 15px; color: #666;">9.99€ / mesec</p>
+                <ul
+                    style="list-style: none; padding: 0; margin: 20px 0; font-size: 15px; line-height: 1.6; color: #444;">
+                    <li>2 knjige dnevno</li>
+                    <li>Tekstualni format</li>
+                </ul>
+            </div>
+            <button onclick="requestUsernameThenStartPayment('Silver')"
+                style="background: #777; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-size: 15px; cursor: pointer; margin-top: auto;">Aktiviraj
+                Silver</button>
+        </div>
+
+        <!-- GOLD PLAN -->
+        <div class="plan-card"
+            style="background: #fffbea; border: 2px solid #ffd700; border-radius: 20px; padding: 30px 20px; width: 300px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="text-align: center; font-size: 22px; color: #bfa100;">🥇 iThrive Gold</h3>
+                <p style="text-align: center; font-size: 15px; color: #555;">13.99€ / mesec</p>
+                <ul
+                    style="list-style: none; padding: 0; margin: 20px 0; font-size: 15px; line-height: 1.6; color: #444;">
+                    <li>2 knjige dnevno</li>
+                    <li>Tekstualni format</li>
+                    <li>Audio format</li>
+                </ul>
+            </div>
+            <button onclick="requestUsernameThenStartPayment('Gold')"
+                style="background: #bfa100; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-size: 15px; cursor: pointer; margin-top: auto;">Aktiviraj
+                Gold</button>
+        </div>
+    </div>
+</section>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="sr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="iThrive – Aplikacija za lični razvoj, sažeci knjiga, audio vodiči i mikro discipline koje menjaju tvoj život korak po korak." />
-  <meta name="keywords" content="iThrive, lični razvoj, knjige, motivacija, produktivnost, self-help, rast, discipline, sazeci knjiga, book summaries, psihologija, citanje" />
+  <meta name="description"
+    content="iThrive – Aplikacija za lični razvoj, sažeci knjiga, audio vodiči i mikro discipline koje menjaju tvoj život korak po korak." />
+  <meta name="keywords"
+    content="iThrive, lični razvoj, knjige, motivacija, produktivnost, self-help, rast, discipline, sazeci knjiga, book summaries, psihologija, citanje" />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="iThrive – Mudrost. Vizija. Snaga." />
-  <meta property="og:description" content="Pridruži se iThrive zajednici i započni svoje putovanje kroz mudrost i rast." />
+  <meta property="og:description"
+    content="Pridruži se iThrive zajednici i započni svoje putovanje kroz mudrost i rast." />
   <meta property="og:image" content="assets/images/logo.png" />
   <meta property="og:url" content="https://ithrive.rs" />
 
@@ -15,33 +19,92 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon.png"/>
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon.png" />
 </head>
+
 <body class="fade-in">
 
   <header class="hero">
-   <div class="hero__content" style="text-align: center;">
+    <div class="hero__content" style="text-align: center;">
       <p class="hero__desc" style="font-size: 18px; line-height: 1.8;">
-        📚 <strong>iThrive</strong> ti donosi <strong>najmoćnije ideje i životne strategije</strong> iz najboljih knjiga današnjice – kroz sažetke u tekstu i zvuku koje možeš savladati za 30 do 60 minuta.<br><br>
-        🎧 <em>Atomic Habits</em>, <em>Rich Dad Poor Dad</em>, <em>Can't Hurt Me</em>, <em>The Power of Now</em>, <em>Think and Grow Rich</em>, <em>The 5 AM Club</em> – i još desetine naslova koji menjaju pogled na život.<br><br>
-        💡 Slušaj dok šetaš. Čitaj kad ti treba jasnoća. Otključaj znanje koje pokreće. Svaki dan, jedan korak bliže najboljoj verziji sebe.
+        📚 <strong>iThrive</strong> ti donosi <strong>najmoćnije ideje i životne strategije</strong> iz najboljih knjiga
+        današnjice – kroz sažetke u tekstu i zvuku koje možeš savladati za 30 do 60 minuta.<br><br>
+        🎧 <em>Atomic Habits</em>, <em>Rich Dad Poor Dad</em>, <em>Can't Hurt Me</em>, <em>The Power of Now</em>,
+        <em>Think and Grow Rich</em>, <em>The 5 AM Club</em> – i još desetine naslova koji menjaju pogled na
+        život.<br><br>
+        💡 Slušaj dok šetaš. Čitaj kad ti treba jasnoća. Otključaj znanje koje pokreće. Svaki dan, jedan korak bliže
+        najboljoj verziji sebe.
       </p>
 
-      <div class="footer__stores" style="margin-top: 30px; display: flex; justify-content: center; gap: 16px; flex-wrap: nowrap;">
-        <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank" style="flex-shrink: 0;">
+      <div class="footer__stores"
+        style="margin-top: 30px; display: flex; justify-content: center; gap: 16px; flex-wrap: nowrap;">
+        <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank"
+          style="flex-shrink: 0;">
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-              alt="Preuzmi na Google Play" style="height: 50px;" />
+            alt="Preuzmi na Google Play" style="height: 50px;" />
         </a>
         <a href="https://apps.apple.com/app/id000000000" target="_blank" style="flex-shrink: 0;">
           <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-              alt="Preuzmi na App Store" style="height: 50px;" />
+            alt="Preuzmi na App Store" style="height: 50px;" />
         </a>
+      </div>
+      <!-- CTA ka planovima -->
+      <script>
+        function smoothScrollTo(targetId, duration = 1000) {
+          const target = document.getElementById(targetId);
+          if (!target) return;
+
+          const start = window.scrollY || window.pageYOffset;
+          const end = target.getBoundingClientRect().top + start;
+          const startTime = performance.now();
+
+          function easeInOutQuad(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          }
+
+          function scroll() {
+            const currentTime = performance.now();
+            const time = Math.min(1, (currentTime - startTime) / duration);
+            const easedTime = easeInOutQuad(time);
+
+            window.scrollTo(0, Math.ceil(start + (end - start) * easedTime));
+
+            if (time < 1) {
+              requestAnimationFrame(scroll);
+            }
+          }
+
+          requestAnimationFrame(scroll);
+        }
+
+        // Prikaci na klik dugmeta
+        document.addEventListener("DOMContentLoaded", () => {
+          const scrollButton = document.getElementById("scrollToPlans");
+          if (scrollButton) {
+            scrollButton.addEventListener("click", (e) => {
+              e.preventDefault();
+              smoothScrollTo("subscription-placeholder", 1200);
+            });
+          }
+        });
+      </script>
+
+      <div style="margin-top: 40px;">
+        <a id="scrollToPlans" href="#" style="display: inline-block; padding: 14px 28px; font-size: 16px; font-weight: 600;
+          background: linear-gradient(135deg, #248097, #1c5e6e); color: white; border-radius: 999px;
+          text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.25)'"
+          onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'">
+          💎 Pogledaj planove i otključaj znanje
+        </a>
+
       </div>
     </div>
     <div class="hero__image">
       <img src="assets/images/mockups/0.png" alt="iThrive mockup" />
     </div>
   </header>
+
 
   <section id="journey" class="journey">
     <h2 class="journey__title">Tvoje putovanje sa iThrive</h2>
@@ -58,11 +121,13 @@
           <h3>Korak 1: Poziv</h3>
           <p>📖 „Nešto u tebi zna da je vreme.”<br>
 
-            Prvi ekran koji vidiš nije samo galerija knjiga – to je poziv. Pogled ti se zadrži na naslovima, ali osećaj ide dublje: želiš više. Želiš jasnoću. Snagu. Strategiju. Mir.<br>
-            Svaka knjiga na ovom mestu ima razlog. One su u iThrive jer menjaju um, pomeraju perspektivu, i vode te bliže onome što možeš da postaneš.<br><br>
-            
+            Prvi ekran koji vidiš nije samo galerija knjiga – to je poziv. Pogled ti se zadrži na naslovima, ali osećaj
+            ide dublje: želiš više. Želiš jasnoću. Snagu. Strategiju. Mir.<br>
+            Svaka knjiga na ovom mestu ima razlog. One su u iThrive jer menjaju um, pomeraju perspektivu, i vode te
+            bliže onome što možeš da postaneš.<br><br>
+
             💡 Ovo nije aplikacija. Ovo je okidač tvoje lične revolucije.<br><br>
-            
+
             🎯 Klikneš. Kreneš. I već si drugačiji.</p>
         </div>
       </div>
@@ -74,12 +139,12 @@
           <p>🧭 Svako veliko putovanje počinje – prvim korakom.<br>
             🖊️ Unosiš svoje ime, ali to nije samo forma.<br>
             To je trenutak kada biraš da rasteš, da postaneš svesniji, snažniji, bistriji.<br><br>
-            
+
             🔐 Registracija nije formalnost – to je ulaznica za svet unutrašnjeg bogatstva.<br>
             🎯 Pristup koji menja način na koji misliš, osećaš i živiš.<br><br>
-            
+
             ⚡ Ne odlaži. Tvoje vreme je sad.
-            </p>
+          </p>
         </div>
       </div>
 
@@ -90,10 +155,10 @@
           <p>
             🔓 Prijavljuješ se – ali ne samo u aplikaciju.<br>
             Ulaziš u prostor koji ti pripada. <br><br>
-          
+
             📚 Sve tvoje knjige. Sve tvoje misli. Tvoj progres, tvoj put. <br>
             🎧 Tvoj glas discipline. Tvoj unutrašnji svet – u formi koju sada možeš da vidiš, čuješ i osetiš. <br><br>
-          
+
             ✨ Dobro došao nazad sebi.
           </p>
         </div>
@@ -105,15 +170,15 @@
           <h3>Korak 4: Tvoja lična baza znanja</h3>
           <p>
             📚 <strong>Sve tvoje knjige na jednom mestu.</strong><br><br>
-          
+
             Ovde počinje strategija. <br>
             Vidiš svoj napredak. Znaš gde si stao. <br>
             Tvoje citate, tvoje utiske, tvoje misli koje vrede zlata. <br><br>
-          
+
             🔁 Ne lutaj. Vraćaj se na ono što te menja. <br>
             📖 U svakom trenutku – znaš šta ti sledeće treba. <br>
             🎯 Fokus. Progres. Završetak. Moć je u tvojoj ruci.
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -123,16 +188,16 @@
           <h3>Korak 5: Biblioteka koja te poznaje</h3>
           <p>
             📖 <strong>Istraži. Otkrij. Rasti.</strong><br><br>
-          
+
             U iThrive biblioteci ne biraš nasumično. <br>
             Biraš po dubini. Po fazi života. Po onome što ti treba baš sada. <br><br>
-          
+
             ✨ "Esencijalna promena", "Klasični biseri", "Mindset za uspeh" – sve kategorije<br>
             su pažljivo kreirane da ti ponude ono što menja iznutra. <br><br>
-          
+
             🔍 Pronađi knjigu koja će te razdrmati. Ili umiriti. Ili osnažiti. <br>
             Svaki naslov je korak bliže tvojoj sledećoj verziji. <br><br>
-          
+
             🔁 I kad misliš da si sve pročitao – iThrive zna šta je sledeće.
           </p>
         </div>
@@ -145,19 +210,19 @@
           <h3>Korak 6: Pogled u mudrost</h3>
           <p>
             📘 <strong>Svaka knjiga u iThrive-u je portal.</strong><br><br>
-          
+
             Na ovoj stranici ne gledaš samo korice – već osećaš dubinu sadržaja.<br>
             🎧 45 minuta audio mudrosti. 16 pažljivo strukturiranih poglavlja.<br><br>
-          
+
             Svaka knjiga dolazi sa kratkim opisom, recenzijama i opcijama:<br>
             🔹 <strong>Čitaj</strong> ako voliš tišinu misli.<br>
             🔸 <strong>Slušaj</strong> ako voliš da te vodi glas.<br><br>
-          
+
             📊 Prati svoje vreme, utiske i napredak. <br>
             📈 Tvoja biblioteka nije samo zbirka – to je ogledalo tvoje evolucije.<br><br>
-          
+
             🎯 Započni. Jer jedno poglavlje može promeniti ceo tvoj pogled na život.
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -167,20 +232,23 @@
           <h3>Korak 7: Utisci i uticaj</h3>
           <p>
             💬 <strong>Tvoje mišljenje menja tok.</strong><br><br>
-          
+
             Svaka knjiga nosi priču, ali svaka <em>ocena</em> dodaje novu nijansu.<br>
-            Bilo da te je knjiga inspirisala, razdrmala ili ti otvorila oči – ovde deliš <strong>osećaj</strong>.<br><br>
-          
+            Bilo da te je knjiga inspirisala, razdrmala ili ti otvorila oči – ovde deliš
+            <strong>osećaj</strong>.<br><br>
+
             😔 – izazvala refleksiju<br>
             🙂 – bila korisna<br>
             😍 – promenila život<br><br>
-          
-            🧠 Komentari nisu tu da popune prostor – oni pomažu drugima da pronađu pravu knjigu u pravom trenutku.<br><br>
-          
-            ✍️ <em>Sve preporuke za ovu knjigu! Mudrost. Vizija. Snaga.</em> – možda je sledeći komentar upravo tvoj.<br><br>
-          
+
+            🧠 Komentari nisu tu da popune prostor – oni pomažu drugima da pronađu pravu knjigu u pravom
+            trenutku.<br><br>
+
+            ✍️ <em>Sve preporuke za ovu knjigu! Mudrost. Vizija. Snaga.</em> – možda je sledeći komentar upravo
+            tvoj.<br><br>
+
             Deli, ocenjuj i budi deo kolektivne svesti. Tvoja reč može nekome biti prekretnica. 🌱
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -190,18 +258,19 @@
           <h3>Korak 8: Ulaziš u svet knjige.</h3>
           <p>
             📖 <strong>Ulaziš u svet knjige.</strong><br><br>
-          
+
             Ovaj trenutak menja sve – stranica se otvara, rečenice počinju da govore, a misli da se oblikuju.<br>
-            Da bi tvoje iskustvo bilo <em>intuitivno i fluidno</em>, korisnički vodič te prati već na prvom koraku:<br><br>
-          
+            Da bi tvoje iskustvo bilo <em>intuitivno i fluidno</em>, korisnički vodič te prati već na prvom
+            koraku:<br><br>
+
             👉 <strong>Dodirni sredinu ekrana</strong> kako bi otkrio meni sa dodatnim opcijama.<br>
             👉 <strong>Prevuci udesno</strong> da nastaviš ka sledećem poglavlju. Tvoj put – tvoj ritam.<br><br>
-          
+
             🌌 Ovo nije običan tekst. Ovo je mapa tvoje transformacije.<br>
             🧠 Svako poglavlje, svaki pasus, vodi te dublje u razumevanje – i sebe i sveta.<br><br>
-          
+
             <em>Razumeš, dotičeš, menjaš. Stranica po stranica.</em>
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -211,17 +280,17 @@
           <h3>Korak 9: Moć jednog citata</h3>
           <p>
             ✍️ <strong>Svaka rečenica može biti iskra.</strong><br><br>
-          
+
             Dugim pritiskom na tekst otvorićeš dodatne opcije. Tu, među rečima, skriva se<br>
             tvoj sledeći uvid, misao vodilja ili rečenica koju ćeš poželeti da zapamtiš zauvek.<br><br>
-          
+
             💾 <strong>Selektuj. Sačuvaj. Vraćaj joj se.</strong><br>
             Neka tvoji omiljeni citati budu samo jedan dodir daleko.<br><br>
-          
+
             🧠 <em>Kao što veliki umovi znaju – jedna misao u pravo vreme menja tok života.</em><br><br>
-          
+
             🔓 <strong>Otvori prostor za uvide. Tvoja istina te čeka između redova.</strong>
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -231,14 +300,14 @@
           <h3>Korak 10: Noćna mudrost</h3>
           <p>
             🌌 <strong>Tvoje misli zaslužuju mir. Čak i u tami.</strong><br><br>
-          
+
             Uključi <strong>noćni režim</strong> i prepusti se čitanju bez napora – dok svi spavaju, ti rasteš.<br>
             Tvoje oči se odmaraju, dok um sija. Savršeno za kasnonoćne uvide i duhovni mir.<br><br>
-          
+
             💤 <em>Idealno za introspektivne trenutke pre spavanja – jer neke misli zaslužuju tišinu.</em><br><br>
-          
+
             🌓 <strong>Noć je tvoj saveznik. Znanje ne poznaje mrak.</strong>
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -248,13 +317,14 @@
           <h3>Korak 11: Mapa znanja</h3>
           <p>
             🧠 <strong>Nije važno samo šta čitaš – već i <em>kako</em> se kroz znanje krećeš.</strong><br><br>
-          
-            Sa <strong>brzom navigacijom kroz poglavlja</strong>, imaš potpunu slobodu da izabereš ono što te u tom trenutku najviše poziva.<br>
+
+            Sa <strong>brzom navigacijom kroz poglavlja</strong>, imaš potpunu slobodu da izabereš ono što te u tom
+            trenutku najviše poziva.<br>
             Vidiš pregled svih tema, kao mapu svog unutrašnjeg putovanja.<br><br>
-          
+
             📖 <em>Da li ti danas treba motivacija, jasnoća, strategija ili isceljenje?</em><br>
             <strong>Jednim dodirom si tamo.</strong>
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -263,12 +333,14 @@
         <div class="text">
           <h3>Korak 12: Uhvaćen trenutak u rečenici</h3>
           <p>
-            ✨ Neke rečenice te pogode kao grom iz vedra neba. Tvoje srce zaigra, um zastane, a duša kaže: <em>“Ovo je to.”</em><br><br>
-          
-            Zato smo ti omogućili da, dok čitaš, samo <strong>selektuješ deo teksta</strong> i jednim dodirom – 💬 <strong>“Dodaj citat”</strong> – sačuvaš misao koja te je oblikovala.<br><br>
-          
+            ✨ Neke rečenice te pogode kao grom iz vedra neba. Tvoje srce zaigra, um zastane, a duša kaže: <em>“Ovo je
+              to.”</em><br><br>
+
+            Zato smo ti omogućili da, dok čitaš, samo <strong>selektuješ deo teksta</strong> i jednim dodirom – 💬
+            <strong>“Dodaj citat”</strong> – sačuvaš misao koja te je oblikovala.<br><br>
+
             📌 Taj trenutak više ne nestaje. Čuvaš ga. Pišeš svoj lični mozaik mudrosti.
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -276,14 +348,15 @@
         <img src="assets/images/mockups/14.png" alt="Korak 15" />
         <div class="text">
           <h3>Korak 13: Lični pečat tvoje misli</h3>
-          <p><p>
+          <p>
+          <p>
             🧠 Citat koji te dotakao je više od teksta – to je ogledalo tvog trenutka.<br><br>
-          
+
             ✍️ Dodaj <strong>svoj komentar</strong>, emociju, refleksiju. Zapiši zašto je to tebi važno. <br><br>
-          
-            Ovaj citat sada ima tvoju boju. Postaje tvoja beleška mudrosti – 
+
+            Ovaj citat sada ima tvoju boju. Postaje tvoja beleška mudrosti –
             📚 spremna da je se setiš kad zatreba, ili da je podeliš sa nekim kome može da pomogne.<br><br>
-          
+
             <span style="font-style: italic;">"Jedna rečenica može promeniti dan. Tvoja reč može promeniti svet."</span>
           </p>
           </p>
@@ -294,15 +367,18 @@
         <div class="text">
           <h3>Korak 14: Tvoja kolekcija citata</h3>
           <p>
-            💎 Svaka misao koju sačuvaš postaje deo tvoje riznice. Ovo je mesto gde tvoje <strong>najdublje spoznaje</strong> žive.<br><br>
-          
-            🔍 Pretraži po knjizi, 🔁 osveži, ✏️ izmeni. Svaki citat ima svoju priču, a svaka priča tvoje lično značenje.<br><br>
-          
-            🤝 Deli inspiraciju sa prijateljima – jer nekome tvoje reči mogu biti svetlo koje mu je baš danas trebalo.<br><br>
-          
+            💎 Svaka misao koju sačuvaš postaje deo tvoje riznice. Ovo je mesto gde tvoje <strong>najdublje
+              spoznaje</strong> žive.<br><br>
+
+            🔍 Pretraži po knjizi, 🔁 osveži, ✏️ izmeni. Svaki citat ima svoju priču, a svaka priča tvoje lično
+            značenje.<br><br>
+
+            🤝 Deli inspiraciju sa prijateljima – jer nekome tvoje reči mogu biti svetlo koje mu je baš danas
+            trebalo.<br><br>
+
             <span style="font-style: italic;">"Tvoje reči. Tvoje misli. Tvoj trag."</span>
           </p>
-          
+
         </div>
       </div>
 
@@ -313,16 +389,17 @@
           <p>
             🎙️ Nemaš vremena da sediš i čitaš?<br>
             <strong>iThrive govori tvojoj duši.</strong><br><br>
-          
+
             Uključi audio sažetak knjige dok voziš, šetaš, vežbaš ili odmaraš.<br>
             Svaka reč je pažljivo narirana, dizajnirana da te inspiriše i probudi tvoju unutrašnju snagu.<br><br>
-          
+
             ⏮️ Premotaj 30s unazad kad želiš da čuješ nešto ponovo.<br>
             ⏭️ Preskoči 30s ako si već savladao lekciju.<br>
             🧠 Budi u toku. Budi u ritmu. Budi <em>svestan</em> dok učiš.<br><br>
-          
-            <span style="font-style: italic;">Znanje više nije ograničeno vremenom. Tvoj rast se sada <strong>sluša</strong>.</span>
-          </p>          
+
+            <span style="font-style: italic;">Znanje više nije ograničeno vremenom. Tvoj rast se sada
+              <strong>sluša</strong>.</span>
+          </p>
         </div>
       </div>
       <div class="journey__step reverse">
@@ -331,16 +408,16 @@
           <h3>Korak 16: Dok slušaš – znaš zašto slušaš</h3>
           <p>
             🔊 Um nije samo prijemnik zvuka – on je kreator značenja.<br><br>
-          
+
             Zato ti iThrive dok slušaš audio, prikazuje <strong>suštinu knjige</strong> kroz kratak opis – <br>
             da u svakom trenutku znaš šta upijaš, čemu pripadaš i kuda ideš.<br><br>
-          
+
             💡 <em>"Bogati otac, siromašni otac"</em> – nije samo priča o novcu,<br>
             već lekcija o slobodi mišljenja, razbijanju mentalnih mitova<br>
             i stvaranju života van okvira.<br><br>
-          
+
             🎯 <strong>Zato što ono što slušaš – oblikuje ono što postaješ.</strong>
-          </p>          
+          </p>
         </div>
       </div>
 
@@ -350,15 +427,15 @@
           <h3>Korak 17: Tvoja audio mapa – lekcije koje vode do promene</h3>
           <p>
             📚 Svaka knjiga je putovanje. Svaka <strong>lekcija</strong> – tvoj sledeći korak.<br><br>
-          
+
             Umesto da slušaš nasumično, iThrive ti omogućava da<br>
             🎯 precizno izabereš poglavlje koje te najviše zanima,<br>
             ⏩ preskočiš ono što već znaš,<br>
             🔁 ili se vratiš tamo gde je nešto dotaklo tvoju suštinu.<br><br>
-          
+
             <strong>Uči selektivno. Uči pametno.</strong> <br>
             Tvoj napredak – tvoje pravilo.
-          </p>          
+          </p>
         </div>
       </div>
       <div class="journey__step reverse">
@@ -368,13 +445,13 @@
           <p>
             ⏩ Nekad želiš da upiješ znanje brzo, kao grom.<br>
             🔁 Nekad ti treba sporiji ritam da svaka reč legne duboko.<br><br>
-          
-            Uz iThrive biraš <strong>brzinu koja ti prija</strong>:<br>          
+
+            Uz iThrive biraš <strong>brzinu koja ti prija</strong>:<br>
             🧠 Tvoj um ima ritam. 🎧 Mi ga poštujemo.<br><br>
 
             <strong>Znanje nije trka. Znanje je putovanje. A ti – biraš korak.</strong>
           </p>
-          
+
         </div>
       </div>
 
@@ -385,13 +462,13 @@
           <p>
             🚘 Svaki kilometar može biti lekcija.<br>
             🛣️ Dok voziš – iThrive te vodi.<br><br>
-          
+
             Uz režim optimizovan za vožnju, sve je tu: <br>
             🎧 jednostavne kontrole, <strong>maksimalna čitljivost</strong> i potpuna sigurnost.<br><br>
-          
+
             Nema skretanja s puta – <strong>samo ti i znanje koje te menja</strong>.<br>
             Jer pametna glava vozi i pametno puni um.
-          </p>          
+          </p>
         </div>
       </div>
       <div class="journey__step reverse">
@@ -401,23 +478,23 @@
           <p>
             🔄 <strong>Čitaš na telefonu, nastavljaš na tabletu.</strong><br>
             Tvoj nalog – tvoj svet, dostupan na <strong>dva uređaja</strong> istovremeno.<br><br>
-          
+
             📱 Da bi aktivirao novi uređaj, unesi njegov <strong>tačan model</strong> uređaja.<br>
             Na većini telefona to možeš pronaći ovako:<br>
             <em><strong>Podešavanja &gt; O telefonu &gt; Model uređaja</strong></em><br><br>
-          
+
             ✅ Primeri ispravnih unosa:
-            <ul>
-              <li><code>22126RN91Y</code> (Xiaomi Redmi Note 12)</li>
-              <li><code>SM-A536B</code> (Samsung Galaxy A53)</li>
-              <li><code>iPhone15,2</code> (Apple iPhone 14 Pro)</li>
-              <li><code>Pixel 7</code> (Google Pixel)</li>
-              <li><code>CPH2451</code> (Oppo Reno8 T)</li>
-            </ul><br>
-          
-            🧠 iThrive automatski pamti tvoj napredak, citate i istoriju čitanja, bez obzira na uređaj.<br>
-            🔐 Sigurno. Privatno. Povezano.
-          </p>                
+          <ul>
+            <li><code>22126RN91Y</code> (Xiaomi Redmi Note 12)</li>
+            <li><code>SM-A536B</code> (Samsung Galaxy A53)</li>
+            <li><code>iPhone15,2</code> (Apple iPhone 14 Pro)</li>
+            <li><code>Pixel 7</code> (Google Pixel)</li>
+            <li><code>CPH2451</code> (Oppo Reno8 T)</li>
+          </ul><br>
+
+          🧠 iThrive automatski pamti tvoj napredak, citate i istoriju čitanja, bez obzira na uređaj.<br>
+          🔐 Sigurno. Privatno. Povezano.
+          </p>
         </div>
       </div>
 
@@ -427,15 +504,16 @@
           <h3>Korak 21: Tvoje komandno središte – sve na dohvat prsta</h3>
           <p>
             🌍 <strong>Jezik. Plan. Napredak. Sve na jednom mestu.</strong><br><br>
-          
+
             🔄 Ovde prilagođavaš iThrive svom životu. Biraš jezik na kojem učiš.<br>
             👑 Vidiš status svoje pretplate i tačno znaš koliko knjiga ti je dostupno.<br><br>
-          
+
             📘 Klikom na <strong>"Preuzmi novu knjigu"</strong> otključavaš sledeći korak svog rasta.<br>
             🧠 <strong>Upravljaj planom</strong> kada želiš više sadržaja, više dubine, više moći.<br><br>
-          
-            💡 Imaš ideju? <strong>Pošalji nam predlog.</strong> iThrive raste zajedno sa tobom – svaka tvoja misao može inspirisati sledeću veliku promenu.
-          </p>          
+
+            💡 Imaš ideju? <strong>Pošalji nam predlog.</strong> iThrive raste zajedno sa tobom – svaka tvoja misao može
+            inspirisati sledeću veliku promenu.
+          </p>
         </div>
       </div>
 
@@ -445,99 +523,132 @@
           <h3>Korak 22: Otključaj nivo svog ličnog rasta</h3>
           <p>
             🔐 <strong>Svaka promena počinje izborom.</strong><br><br>
-          
+
             ⚙️ <strong>Basic</strong> plan je tvoja startna pozicija – ali prava snaga ostaje zaključana.<br>
             ✔️ Osnovni pristup. ❌ Bez punog potencijala.<br><br>
-          
+
             🥈 <strong>Silver</strong> je za one koji ne gube vreme.<br>
             ✅ 2 knjige dnevno. ✅ Instant znanje, odmah na dlanu.<br>
             📘 Savršen za brze čitaoce i umove u pokretu.<br><br>
-          
+
             🥇 <strong>Gold</strong> je tvoja biblioteka u džepu – u tekstu i zvuku.<br>
             ✅ Sve iz Silvera + 🎧 Audio vodiči koji ti govore kad ne možeš da čitaš.<br>
             🚘 Idealno za vožnju, šetnju, trening ili dok zatvaraš dan.<br><br>
-          
+
             🌟 <strong>Ne biraš samo plan. Biraš nivo fokusa, brzine i posvećenosti sebi.</strong><br>
             🎯 Pitanje je – da li želiš da napreduješ povremeno ili svakodnevno?
-          </p>          
+          </p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <section id="finish" class="waitlist" style="animation: fadeInUp 1s ease-in;">
-  <h2 style="font-size: 32px; font-weight: 800; color: var(--primary);">🎉 Čestitamo!</h2>
-  <p style="font-size: 18px; max-width: 700px; margin: 20px auto;">
-    Prvi izazov si uspešno savladao – stigao si do kraja prezentacije. Time si dokazao nešto važno:
-    <strong>imaš volju da postaneš najbolja verzija sebe</strong>. 
-    Zato ti nudimo priliku da odmah napraviš sledeći korak.
-  </p>
+  <div id="subscription-placeholder"></div>
+  <script>
+    fetch("subscription-section.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("subscription-placeholder").innerHTML = html;
+      });
+  </script>
 
-  <p style="font-size: 18px; max-width: 700px; margin: 20px auto;">
-    🎁 <strong>Preuzmi iThrive aplikaciju danas i otključaj BESPLATNO sledećih 5 knjiga koje menjaju život:</strong>
-  </p>
-
-  <ul style="list-style: none; padding: 0; font-size: 17px; margin: 20px auto; max-width: 600px; text-align: center;">
-    <li>📘 <strong>Atomic Habits</strong> – James Clear</li>
-    <li>🧠 <strong>The Power of Your Subconscious Mind</strong> – Joseph Murphy</li>
-    <li>🔥 <strong>Can't Hurt Me</strong> – David Goggins</li>
-    <li>💰 <strong>Rich Dad Poor Dad</strong> – Robert Kiyosaki</li>
-    <li>🌿 <strong>The Four Agreements</strong> – Don Miguel Ruiz</li>
-  </ul>
-
-  <p style="font-size: 18px; margin: 30px auto; max-width: 700px;">
-    🚀 Preuzmi aplikaciju sada i započni svoje putovanje ka snažnijoj, mudrijoj i disciplinovanijoj verziji sebe.
-  </p>
-
-  <div class="footer__stores" style="margin-top: 30px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-    <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-           alt="Preuzmi na Google Play" style="height: 50px;" />
-    </a>
-    <a href="https://apps.apple.com/app/id000000000" target="_blank">
-      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-           alt="Preuzmi na App Store" style="height: 50px;" />
-    </a>
+  <!-- Username Modal -->
+  <div id="usernameModal" class="modal-overlay">
+    <div id="modal-box" class="modal-box"
+      style="background: white; border-radius: 16px; padding: 30px; max-width: 400px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif;">
+      <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 15px; color: #222;">✨ Svaka priča o uspehu počinje sa
+        tvojim imenom
+      </h3>
+      <p style="font-size: 16px; color: #555; margin-bottom: 20px;">
+        Unesi svoj <strong>jedinstveni username</strong> koji koristiš u aplikaciji. Na osnovu njega ćemo povezati tvoju
+        uplatu sa nalogom.
+      </p>
+      <input type="text" id="usernameInput" placeholder="Unesi username iz aplikacije"
+        style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; margin-bottom: 20px;" />
+      <div class="modal-actions" style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button onclick="closeModal()"
+          style="background: #eee; border: none; padding: 10px 18px; border-radius: 8px; font-size: 15px; cursor: pointer;">Odustani</button>
+        <button onclick="submitUsername()"
+          style="background: #248097; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 15px; cursor: pointer;">🚀
+          Potvrdi</button>
+      </div>
+    </div>
   </div>
 
-  <div style="margin-top: 30px;">
-    <a href="#journey" style="
+  <section id="finish" class="waitlist" style="animation: fadeInUp 1s ease-in;">
+    <h2 style="font-size: 32px; font-weight: 800; color: var(--primary);">🎉 Čestitamo!</h2>
+    <p style="font-size: 18px; max-width: 700px; margin: 20px auto;">
+      Prvi izazov si uspešno savladao – stigao si do kraja prezentacije. Time si dokazao nešto važno:
+      <strong>imaš volju da postaneš najbolja verzija sebe</strong>.
+      Zato ti nudimo priliku da odmah napraviš sledeći korak.
+    </p>
+
+    <p style="font-size: 18px; max-width: 700px; margin: 20px auto;">
+      🎁 <strong>Preuzmi iThrive aplikaciju danas i otključaj BESPLATNO sledećih 5 knjiga koje menjaju život:</strong>
+    </p>
+
+    <ul style="list-style: none; padding: 0; font-size: 17px; margin: 20px auto; max-width: 600px; text-align: center;">
+      <li>📘 <strong>Atomic Habits</strong> – James Clear</li>
+      <li>🧠 <strong>The Power of Your Subconscious Mind</strong> – Joseph Murphy</li>
+      <li>🔥 <strong>Can't Hurt Me</strong> – David Goggins</li>
+      <li>💰 <strong>Rich Dad Poor Dad</strong> – Robert Kiyosaki</li>
+      <li>🌿 <strong>The Four Agreements</strong> – Don Miguel Ruiz</li>
+    </ul>
+
+    <p style="font-size: 18px; margin: 30px auto; max-width: 700px;">
+      🚀 Preuzmi aplikaciju sada i započni svoje putovanje ka snažnijoj, mudrijoj i disciplinovanijoj verziji sebe.
+    </p>
+
+    <div class="footer__stores"
+      style="margin-top: 30px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+          alt="Preuzmi na Google Play" style="height: 50px;" />
+      </a>
+      <a href="https://apps.apple.com/app/id000000000" target="_blank">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          alt="Preuzmi na App Store" style="height: 50px;" />
+      </a>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <a href="#journey" style="
         font-size: 14px;
         color: #555;
         opacity: 0.8;
         transition: opacity 0.3s ease;
         display: inline-block;
       " onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
-      🔁 Nazad na početak
-    </a>
-  </div>
+        🔁 Nazad na početak
+      </a>
+    </div>
 
-</section>
+  </section>
 
 
 
   <footer class="footer">
     <div class="footer__content">
       <p>&copy; 2025 iThrive. Sva prava zadržana.</p>
-  
+
       <nav class="footer__links">
         <a href="politika-privatnosti.html">Politika privatnosti</a>
         <a href="uslovi-koriscenja.html">Uslovi korišćenja</a>
         <a href="delete-account.html">Brisanje naloga</a>
       </nav>
-  
+
       <div class="footer__stores">
         <a href="https://play.google.com/store/apps/details?id=rs.ithrive.app&hl=en" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                 alt="Preuzmi na Google Play" style="height: 40px;" />
-          </a>
-          <a href="https://apps.apple.com/app/id000000000" target="_blank">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                 alt="Preuzmi na App Store" style="height: 40px;" />
-          </a>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+            alt="Preuzmi na Google Play" style="height: 40px;" />
+        </a>
+        <a href="https://apps.apple.com/app/id000000000" target="_blank">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+            alt="Preuzmi na App Store" style="height: 40px;" />
+        </a>
       </div>
-  
+
       <div class="footer__social">
         <a href="https://www.instagram.com/ithrive.rs" target="_blank" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
@@ -550,9 +661,10 @@
         </a>
       </div>
     </div>
-  </footer>  
+  </footer>
 
   <script src="scripts.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
+
 </html>

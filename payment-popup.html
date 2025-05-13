@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plaćanje</title>
+    <script>
+        // Izdvuci checkoutId iz URL
+        const params = new URLSearchParams(window.location.search);
+        const checkoutId = params.get("checkoutId");
+
+        const successUrl = `http://api.ithrive.rs/api/payment/checkStatus/${checkoutId}`;
+        const failureUrl = `http://api.ithrive.rs/api/payment/payment/result?status=failure?status=failure&transactionId=${checkoutId}`;
+    </script>
+    <script id="allsecure-script" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+    <div style="max-width: 400px; margin: 40px auto; padding: 10px;">
+        <form id="paymentForm" class="paymentWidgets" data-brands="VISA MASTER AMEX">
+        </form>
+
+        <!-- Google Fonts Poppins -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+        <div style="
+        text-align: center;
+        margin-top: 20px;
+        font-size: 15px;
+        font-family: 'Poppins', sans-serif;
+        color: #555;
+        line-height: 1.6;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        ">
+            Plaćanje se vrši putem <strong style="color: #248097;">AllSecure</strong> platforme — vodećeg evropskog
+            rešenja za sigurne transakcije.
+            <br />
+            Tvoji podaci su <strong>100% zaštićeni</strong> i nikada se ne čuvaju u aplikaciji.
+            <br />
+            <img src="assets/images/allsecure-logo.png" alt="Allsecure Icon" style="margin-top: 12px; height: 46px;" />
+        </div>
+
+
+    </div>
+
+    <script>
+        // Inicijalizuj skriptu kad checkoutId postoji
+        document.addEventListener("DOMContentLoaded", () => {
+            const script = document.getElementById("allsecure-script");
+            script.src = `https://eu-prod.oppwa.com/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
+            const form = document.getElementById("paymentForm");
+            form.setAttribute("action", successUrl);
+            form.setAttribute("data-error", failureUrl);
+        });
+    </script>
+</body>
+
+</html>
