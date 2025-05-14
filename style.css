@@ -490,20 +490,3 @@ main ul li {
   background-color: #f0f0f0;
   color: #333;
 }
-
-@media (hover: none) and (pointer: coarse) {
-  .plan-card:hover::before {
-    left: -100%;
-    /* poništi animaciju */
-  }
-
-  .plan-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .plan-card button:hover {
-    transform: none;
-    box-shadow: none;
-  }
-}
