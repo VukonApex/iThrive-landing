@@ -10,8 +10,8 @@
         const params = new URLSearchParams(window.location.search);
         const checkoutId = params.get("checkoutId");
 
-        const successUrl = `http://api.ithrive.rs/api/payment/checkStatus/${checkoutId}`;
-        const failureUrl = `http://api.ithrive.rs/api/payment/payment/result?status=failure?status=failure&transactionId=${checkoutId}`;
+        const successUrl = `https://api.ithrive.rs/api/payment/checkStatus/${checkoutId}`;
+        const failureUrl = `https://api.ithrive.rs/api/payment/payment/result?status=failure?status=failure&transactionId=${checkoutId}`;
     </script>
     <script id="allsecure-script" crossorigin="anonymous" defer></script>
 </head>

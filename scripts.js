@@ -94,7 +94,7 @@ function submitUsername() {
 
   closeModal();
 
-  fetch("https://192.168.0.14:45455/api/payment/initialize-web", {
+  fetch("https://api.ithrive.rs/api/payment/initialize-web", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -108,19 +108,8 @@ function submitUsername() {
     .then(data => {
       if (data.success && data.message) {
         const checkoutId = encodeURIComponent(data.message);
-
-        // Ceniraj popup
-        const width = 500;
-        const height = 700;
-        const left = window.screenX + (window.outerWidth - width) / 2;
-        const top = window.screenY + (window.outerHeight - height) / 2;
-
-
-        window.open(
-          `/payment-popup.html?checkoutId=${checkoutId}`,
-          "_blank",
-          `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
-        );
+        // 🔁 Direktno preusmeravanje korisnika na novu stranicu (nema više popupa!)
+        window.location.href = `/payment-popup.html?checkoutId=${checkoutId}`;
       } else {
         alert(data.message || "Plaćanje nije moglo da se pokrene.");
       }
